@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import Form from "./Components/Form.js";
+import Header from "./Components/Header.js";
 import './App.css';
 import axios from'axios';
 
@@ -29,7 +30,7 @@ function App() {
 
 
 
-    const getFood=(item, itemT, itemTr)=>{
+  const getFood=(item, itemT, itemTr)=>{
       console.log(item, itemT, itemTr);
 
 
@@ -46,7 +47,8 @@ function App() {
     }
 
     const handleClick =()=>{
-     setOpen(!open);
+    
+      setOpen(!open);
     }
 
     return (
@@ -54,31 +56,75 @@ function App() {
       <>
     
    
-    
-      <h1>What's in the Fridge?</h1>
-      <p>Click our fridge then enter what you found in yours to get some inspiration!</p>
+      <Header/>
+     
 
         {
         open?
+        <section>
+          <div className = "fridge-section">
         <div className="fridge">
+          
             <div className="shelves">
-              <div>
+
+               <div className="shelfX shelf">
 
               </div>
-              <div>
+
+              <div className="shelfX shelf">
                 
+              </div> 
+
+              <div className="shelf shelfY">
+ 
+              </div>
+
+              <div className="bread">
+                <div className="ear">
+
                 </div>
-                <div>
-                
-                </div>
-            </div>
+                <div className="ear">
+                  
+                  </div>
+                  <div className="ear">
+                  
+                  </div>
+              </div>
+
+              <div className="olive-oil">
+
+              </div>
+
+
+              <div className="eggplant">
+
+
+              </div>
+
+              <div className="mushroom">
+
+
+              </div>
+              
+          </div>
+   
           <Form passFood={getFood}/>
-          <div className="inner-fridge change">
+          <div className="inner-fridgeT">
+          <div className="handlecon">
+                  <div className="handle">
+
+                  </div>
+                </div>
       
        
+          </div>
         </div>
         </div>
+        </section>
         :
+
+        <section>
+        <div className = "fridge-section">
         <div onClick={handleClick} className="fridge">
            
               <div className="inner-fridge">
@@ -91,6 +137,8 @@ function App() {
         </div>
    
         </div>
+        </div>
+        </section>
       }
         
         
