@@ -1,13 +1,15 @@
 import {useState, useEffect} from 'react';
 import Form from "./Components/Form.js";
 import Header from "./Components/Header.js";
+import Footer from "./Components/Footer.js";
 import './App.css';
 import axios from'axios';
+
 
 function App() {
 
   const [recipes,getRecipes] = useState(false)
-  const [ing,setIng]=useState([""]);
+  const [ing,setIng]=useState('');
   const [open,setOpen] = useState(false)
   
   useEffect(()=>{
@@ -18,7 +20,7 @@ function App() {
  
       params: {
         apiKey:'e451ade8c07b4ca6b0fb9fd14bb5370d',
-        includeIngredients:`${ing[0],ing[1],ing[2]}`,
+        includeIngredients:ing,
         addRecipeInformation:true
       }
     })
@@ -31,19 +33,25 @@ function App() {
 
 
   const getFood=(item, itemT, itemTr)=>{
-      console.log(item, itemT, itemTr);
+      
+      
+
 
 
 
       let newOne =[];
       newOne.push(item, itemT, itemTr)
-      const food=newOne.filter(item=>{
-        return item;
-      })
-      console.log(food[0]);
 
-      setIng(food);
-   
+
+      const food=newOne.filter(item=>{
+        return item
+      })
+
+      console.log(...food);
+
+      setIng(...food);
+      console.log(ing);
+    
     }
 
     const handleClick =()=>{
@@ -143,7 +151,7 @@ function App() {
         
         
 
-
+      <Footer/>
       </>
     
   );
