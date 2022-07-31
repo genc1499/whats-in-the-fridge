@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import Form from "./Components/Form.js";
 import Header from "./Components/Header.js";
 import Footer from "./Components/Footer.js";
+import Results from "./Components/Results.js";
 import './App.css';
 import axios from'axios';
 
@@ -10,7 +11,8 @@ function App() {
 
   const [recipes,getRecipes] = useState(false)
   const [ing,setIng]=useState('');
-  const [open,setOpen] = useState(false)
+  const [open,setOpen] = useState(false);
+  const [display, setDisplay]=useState(false);
   
   useEffect(()=>{
 
@@ -26,6 +28,7 @@ function App() {
     })
     .then((res) =>{
       console.log(res.data.results);
+      getRecipes(res.data.results);
     });
   },[ing])
 
@@ -34,11 +37,7 @@ function App() {
 
   const getFood=(item, itemT, itemTr)=>{
       
-      
-
-
-
-
+  
       let newOne =[];
       newOne.push(item, itemT, itemTr)
 
@@ -57,6 +56,10 @@ function App() {
     const handleClick =()=>{
     
       setOpen(!open);
+    }
+
+    const displayRecipe=()=>{
+      setDisplay(true);
     }
 
     return (
@@ -116,7 +119,7 @@ function App() {
               
           </div>
    
-          <Form passFood={getFood}/>
+          <Form passFood={getFood} display = {displayRecipe}/>
           <div className="inner-fridgeT">
           <div className="handlecon">
                   <div className="handle">
@@ -147,6 +150,16 @@ function App() {
         </div>
         </div>
         </section>
+      }
+
+      {
+      open && display?
+     
+   
+          <Results recipes={recipes}/>
+     
+    
+      :<></>
       }
         
         
