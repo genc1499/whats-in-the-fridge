@@ -14,6 +14,7 @@ html{
   font-size:125%;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background-color: #FFE66D;
 }
 
 
@@ -53,7 +54,7 @@ header p{
 
 .fridge-section{
   display:flex;
-  justify-content: center;
+  justify-content:center;
   align-items: center;
 }
 .fridge{
@@ -501,6 +502,9 @@ footer{
   font-size:1.2rem;
   margin:0;
   height:10vh;
+  position:absolute;
+  bottom:0;
+  width:100vw;
 }
 
 footer p {
@@ -568,4 +572,79 @@ footer p {
     border-bottom-left-radius:10%;
     border-bottom-right-radius:10%;
 
+}
+
+.plate{
+  width: 325px;
+  height: 400px;
+  background-color: white;
+  border:2px solid black;
+  display:flex;
+  flex-direction:column;
+  margin-right:5%;
+  position:relative;
+  border-radius:3px;
+
+}
+
+.recipe-info{
+  display:flex;
+  align-items:center;
+  justify-content: space-evenly
+}
+
+.recipe-img{
+  width:100%;
+  
+}
+
+img{
+  max-width:100%;
+  object-fit:contain;
+  max-height:225px;
+  border-radius:20px;
+
+}
+
+.time, .servings{
+  display: flex;
+  align-items:center;
+ 
+
+}
+
+.time h3{
+  margin-right:3px;
+}
+
+.plate h2{
+  text-align:center;
+  font-size:1rem;
+  margin-bottom:0;
+}
+
+.plate h3{
+  font-size:.9rem;
+}
+
+.plate p{
+  font-size:.8rem;
+}
+
+.recipe-direction{
+  display:flex;
+  justify-content:center;
+  position:absolute;
+  bottom:0;
+  margin-left: 43%;
+}
+
+.plate button{
+  border:none;
+  background-color: transparent;
+  
+}
+
+section{
+  height:500px;
 }

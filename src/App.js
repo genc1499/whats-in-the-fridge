@@ -3,6 +3,7 @@ import Form from "./Components/Form.js";
 import Header from "./Components/Header.js";
 import Footer from "./Components/Footer.js";
 import Results from "./Components/Results.js";
+import Fridge from "./Components/Fridge.js";
 import './App.css';
 import axios from'axios';
 
@@ -10,13 +11,13 @@ import axios from'axios';
 function App() {
 
   const [recipes,getRecipes] = useState(false)
-  const [ing,setIng]=useState('');
+  const [ing,setIng]=useState("");
   const [open,setOpen] = useState(false);
   const [display, setDisplay]=useState(false);
-  
+
   useEffect(()=>{
 
-  axios( {
+  axios({ 
     method:'GET',
     url:'https://api.spoonacular.com/recipes/complexSearch',
  
@@ -29,15 +30,13 @@ function App() {
     .then((res) =>{
       console.log(res.data.results);
       getRecipes(res.data.results);
+    
     });
+
   },[ing])
-
-
-
 
   const getFood=(item, itemT, itemTr)=>{
       
-  
       let newOne =[];
       newOne.push(item, itemT, itemTr)
 
@@ -54,7 +53,6 @@ function App() {
     }
 
     const handleClick =()=>{
-    
       setOpen(!open);
     }
 
@@ -66,105 +64,110 @@ function App() {
 
       <>
     
-   
       <Header/>
-     
 
-        {
-        open?
-        <section>
-          <div className = "fridge-section">
-        <div className="fridge">
+      {
+      open && display?
+      <section>
+      <div className = "fridge-section">
+      <Results recipes={recipes}/>
+      <div className="fridge">
+
+
+    
+        <div className="shelves">
+
+          <div className="shelfX shelf"></div>
+          <div className="shelfX shelf"></div> 
+          <div className="shelf shelfY"></div>
+
+          <div className="bread">
+
+            <div className="ear"></div>
+            <div className="ear"></div>
+            <div className="ear"></div>
+
+          </div>
+
+          <div className="olive-oil"></div>
+          <div className="eggplant"></div>
+          <div className="mushroom"></div>
           
-            <div className="shelves">
+        </div>
 
-               <div className="shelfX shelf">
+        <Form passFood={getFood} display = {displayRecipe}/>
 
-              </div>
-
-              <div className="shelfX shelf">
-                
-              </div> 
-
-              <div className="shelf shelfY">
- 
-              </div>
-
-              <div className="bread">
-                <div className="ear">
-
-                </div>
-                <div className="ear">
-                  
-                  </div>
-                  <div className="ear">
-                  
-                  </div>
-              </div>
-
-              <div className="olive-oil">
-
-              </div>
-
-
-              <div className="eggplant">
-
-
-              </div>
-
-              <div className="mushroom">
-
-
-              </div>
-              
-          </div>
-   
-          <Form passFood={getFood} display = {displayRecipe}/>
-          <div className="inner-fridgeT">
+        <div className="inner-fridgeT">
           <div className="handlecon">
-                  <div className="handle">
-
-                  </div>
-                </div>
-      
-       
+            <div className="handle"></div>
           </div>
         </div>
-        </div>
+      </div>
+    </div>
+  </section>
+      // :<></>
+    // }
+    // {
+        :open && !display?
+        <section>
+        
+          <div className = "fridge-section">
+            <Results/>
+            <div className="fridge">
+
+      
+          
+              <div className="shelves">
+
+                <div className="shelfX shelf"></div>
+                <div className="shelfX shelf"></div> 
+                <div className="shelf shelfY"></div>
+
+                <div className="bread">
+
+                  <div className="ear"></div>
+                  <div className="ear"></div>
+                  <div className="ear"></div>
+
+                </div>
+
+                <div className="olive-oil"></div>
+                <div className="eggplant"></div>
+                <div className="mushroom"></div>
+                
+              </div>
+   
+              <Form passFood={getFood} display = {displayRecipe}/>
+
+              <div className="inner-fridgeT">
+                <div className="handlecon">
+                  <div className="handle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
         :
-
         <section>
-        <div className = "fridge-section">
-        <div onClick={handleClick} className="fridge">
+        
+          <div className = "fridge-section">
+       
+            <div onClick={handleClick} className="fridge">
            
               <div className="inner-fridge">
              
                 <div className="handlecon">
-                  <div className="handle">
-
-                  </div>
+                  <div className="handle"></div>
                 </div>
-        </div>
-   
-        </div>
-        </div>
+              </div>
+            </div>
+          </div>
         </section>
       }
 
-      {
-      open && display?
-     
-   
-          <Results recipes={recipes}/>
-     
-    
-      :<></>
-      }
-        
-        
-
-      <Footer/>
+      
+      
+      {/* <Footer/> */}
       </>
     
   );

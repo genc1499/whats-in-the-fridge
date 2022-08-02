@@ -39,9 +39,9 @@ const Form = (props)=>{
             <input onChange = {handleChangeThree} type="text" value={third}/>
             <button>Inspire Me</button>
             {
-                ing?
-                <>
             
+            ing?
+            <>
                 <div className="radio-flex">
                     <label className="do-not" htmlfor="vegan">Gluten</label>
                     <input type="checkbox" id="vegan"/>
@@ -49,8 +49,8 @@ const Form = (props)=>{
                     <input type="checkbox"/>
                     <button onClick = {handleClick}>Done</button>
                 </div>
-                </>
-                :<></>
+            </>
+            :<></>
             }
         </form>
         
