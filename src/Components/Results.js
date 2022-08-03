@@ -3,6 +3,7 @@ import Fridge from './Fridge.js'
 const Results = (props)=>{
 
     const [index, setIndex]=useState(0);
+    const [newSearch, setNewSearch]=useState(true);
     let copy = index;
     console.log("this nimber", copy);
 
@@ -25,12 +26,16 @@ const Results = (props)=>{
         }
     }
 
+    const handleClickSearch=()=>{
+        setNewSearch(false);
+    }
+
     return (
             <>
             {
                 props.recipes?
 
-                <div className = "fridge-section">
+              
              
                 <div className="plate">
 
@@ -45,7 +50,7 @@ const Results = (props)=>{
                         </div>
 
                         <div className="time">
-                            <h3>Servings </h3>
+                            <h3>Servings</h3>
                             <p>{props.recipes[index].servings}</p>
                         </div>
 
@@ -54,19 +59,20 @@ const Results = (props)=>{
                     
 
                     <div className="recipe-img">
-                    <a href={props.recipes[index].sourceUrl}><img src={props.recipes[index].image}/></a>
+                    <a href={props.recipes[index].sourceUrl} rel="noopener noreferrer" target="_blank"><img src={props.recipes[index].image}/></a>
                     </div>
                   
                       
                    
                 
                     <div className="recipe-direction">
+                        <button onClick={ ()=>handleClickSearch()}>New Search</button>
                         <button onClick={ ()=>handleClickBack()}>⏪</button>
                         <button onClick={ ()=>handleClickNext()}>⏩</button>
                         
                     </div>
                 </div>
-            </div>
+      
                  
          :<></>
     

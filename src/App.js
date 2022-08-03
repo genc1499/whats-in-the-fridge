@@ -15,6 +15,7 @@ function App() {
   const [open,setOpen] = useState(false);
   const [display, setDisplay]=useState(false);
 
+
   useEffect(()=>{
 
   axios({ 
@@ -59,6 +60,8 @@ function App() {
     const displayRecipe=()=>{
       setDisplay(true);
     }
+
+
 
     return (
 
@@ -112,7 +115,7 @@ function App() {
         <section>
         
           <div className = "fridge-section">
-            <Results/>
+          
             <div className="fridge">
 
       
@@ -147,7 +150,8 @@ function App() {
             </div>
           </div>
         </section>
-        :
+        :!open && !display?
+        
         <section>
         
           <div className = "fridge-section">
@@ -163,11 +167,11 @@ function App() {
             </div>
           </div>
         </section>
-      }
+        :<></>
+}
 
       
-      
-      {/* <Footer/> */}
+   
       </>
     
   );
