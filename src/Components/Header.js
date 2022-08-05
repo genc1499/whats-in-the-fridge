@@ -2,7 +2,7 @@ const Header= ()=>{
     return(
         <>
         <header>
-            <h1>What's in the Fridge?</h1>
+            <h1>In the Fridge</h1>
         </header>
         </>
     )

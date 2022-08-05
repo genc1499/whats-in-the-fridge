@@ -40,17 +40,17 @@ function App() {
       
       let newOne =[];
       newOne.push(item, itemT, itemTr)
-
+      console.log(newOne);
 
       const food=newOne.filter(item=>{
         return item
       })
 
-      console.log(...food);
-
-      setIng(...food);
+      console.log(food);
+      let foodNew=food.toString();
+      setIng(foodNew);
+   
       console.log(ing);
-    
     }
 
     const handleClick =()=>{
@@ -61,6 +61,9 @@ function App() {
       setDisplay(true);
     }
 
+    const getNewSearch = ()=>{
+      setDisplay(!display);
+    }
 
 
     return (
@@ -72,8 +75,10 @@ function App() {
       {
       open && display?
       <section>
+         <Fridge/>
       <div className = "fridge-section">
-      <Results recipes={recipes}/>
+       
+      <Results recipes={recipes} setNewSearch={getNewSearch}/>
       <div className="fridge">
 
 
@@ -100,7 +105,7 @@ function App() {
 
         <Form passFood={getFood} display = {displayRecipe}/>
 
-        <div className="inner-fridgeT">
+        <div className="inner-fridgeTDone">
           <div className="handlecon">
             <div className="handle"></div>
           </div>
@@ -116,9 +121,9 @@ function App() {
         
           <div className = "fridge-section">
           
+          
             <div className="fridge">
 
-      
           
               <div className="shelves">
 

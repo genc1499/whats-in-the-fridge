@@ -48,6 +48,17 @@ header p{
   margin-bottom:0;
 }
 
+.instructions{
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  margin:auto 0;
+
+}
+.instructions p{
+  margin:0;
+}
+
 .arrow{
   font-style:normal
 }
@@ -110,6 +121,24 @@ transition: 3s ease-in-out;
  animation:open linear .3s;
  transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(105deg);
  animation-fill-mode:forwards;
+}
+
+.inner-fridgeTDone{
+  width:250px;
+  height:390px;
+  position:absolute;
+  top:0;
+  right:-5px;
+  z-index: 10;
+  transform-origin: right;
+  background: rgb(70,200,27);
+  background: linear-gradient(0deg,  rgba(158,240,186,1) 100%),rgba(70,200,27,0.7009804605435925)
+    ;
+  border-radius: 40px;
+  border-bottom-left-radius:10%;
+  border-bottom-right-radius:10%;
+  transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(105deg);
+
 }
 
 .inner-fridge::before{

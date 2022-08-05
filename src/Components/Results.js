@@ -27,7 +27,7 @@ const Results = (props)=>{
     }
 
     const handleClickSearch=()=>{
-        setNewSearch(false);
+        props.setNewSearch();
     }
 
     return (
